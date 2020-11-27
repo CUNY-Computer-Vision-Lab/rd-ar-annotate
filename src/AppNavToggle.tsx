@@ -1,12 +1,20 @@
+import React from 'react';
 import { Icon, Navbar, Nav, Dropdown } from 'rsuite';
+
+interface NavToggleProps {
+  expand: boolean;
+  onChange: () => void;
+  signOut: () => void;
+}
 
 const iconStyles = {
   width: 56,
   height: 56,
   lineHeight: '56px',
-  textAlign: 'center',
+  textAlign: 'center' as 'center',
 };
-const NavToggle = ({ expand, onChange }) => {
+
+const NavToggle = ({ expand, onChange, signOut }: NavToggleProps) => {
   return (
     <Navbar
       appearance='subtle'
@@ -24,7 +32,7 @@ const NavToggle = ({ expand, onChange }) => {
           >
             <Dropdown.Item>Help</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown.Item onClick={signOut}>Sign out</Dropdown.Item>
           </Dropdown>
         </Nav>
 
